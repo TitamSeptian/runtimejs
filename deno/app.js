@@ -1,7 +1,7 @@
 const port = 8002;
-
-const handler = (request: Request): Response => {
-  const body: Object = JSON.stringify({
+const hostname = '192.168.100.183';
+const handler = (request) => {
+  const body = JSON.stringify({
     method: request.method,
     url: request.url,
     headers: {
@@ -42,5 +42,7 @@ const handler = (request: Request): Response => {
   
 };
 
-console.log(`HTTP server running. Access it at: http://localhost:${port}/`);
+console.log(`HTTP server running. Access it at: http://${hostname}:${port}/`);
+// to allow on network 
+// $ deno run --allow-net .\app.js
 Deno.serve({ port }, handler);

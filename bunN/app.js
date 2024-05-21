@@ -1,6 +1,8 @@
 Bun.serve({
-  fetch(req: Request) {
-    const data: Object = {
+  port: 8003,
+  hostname: '192.168.100.183',
+  fetch(req) {
+    const data = {
       method: req.method,
       url: req.url,
       headers: req.headers,
@@ -36,5 +38,4 @@ Bun.serve({
     }
 
   },
-  port: 8003,
 });
